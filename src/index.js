@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 
 // Find all widget divs
 const widgetDivs = document.querySelectorAll('.konfhub-payement-button');
@@ -16,4 +16,4 @@ widgetDivs.forEach(div => {
     );
 });
 
-reportWebVitals();
+// reportWebVitals();
