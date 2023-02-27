@@ -1,19 +1,17 @@
+import { useState } from "react";
 import PaymentButton from "./component/PaymentButton"
 
 function App() {
-  
-  document.currentScript = document.currentScript || (function() {
-    var scripts = document.getElementsByTagName('script');
-    return scripts[scripts.length - 1];
-  })();
 
-  let eventUrl = document.currentScript.getAttribute('eventUrl');
+  const [eventUrl, setEventUrl] = useState("");
 
-  console.log(eventUrl)
+  window.konfhubButton = function(url){
+    setEventUrl(url);
+  };
 
   return (
     <div className="">
-      <PaymentButton eventUrl={eventUrl} />
+      <PaymentButton eventUrl={eventUrl}/>
     </div>
   );
 }
