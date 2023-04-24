@@ -4,6 +4,8 @@ const PaymentButton = ({eventUrl}) => {
     const [open, setOpen] = useState(false);
     const [buttonText, setButtonText] = useState("");
     const [buttonTheme, setButtonTheme] = useState("");
+    const [tickets, setTickets] = useState();
+    const [desc, setDesc] = useState(false)
     // const [eventUrl, setEventUrl] = useState("")
 
     window.konfhubButton("jt-75dc36e9");
@@ -12,9 +14,14 @@ const PaymentButton = ({eventUrl}) => {
         let buttonText = document.currentScript?.getAttribute('data-button_text') ? document.currentScript.getAttribute('data-button_text') : "Register"; // 1
         let buttonTheme = document.currentScript?.getAttribute('data-button_theme') ? document.currentScript.getAttribute('data-button_theme') : "#fb5850"; // 2   
         // let buttonTheme = document.currentScript?.getAttribute('data-button_theme') ? document.currentScript.getAttribute('data-button_theme') : "#fb5850"; // 2   
+        let tickets = document.currentScript?.getAttribute('data-tickets') ? document.currentScript.getAttribute('data-tickets') : ""; // 2   
+        let tickets_desc = document.currentScript?.getAttribute('data-tickets_desc') ? document.currentScript.getAttribute('data-tickets_desc') : false; // 2   
 
         setButtonText(buttonText)
         setButtonTheme(buttonTheme)
+
+        setTickets(tickets)
+        setDesc(tickets_desc)
         // setEventUrl(eventUrl)
         console.log(buttonText, buttonTheme, eventUrl, "asd")
     }, [])
