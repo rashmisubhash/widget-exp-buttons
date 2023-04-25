@@ -242,34 +242,6 @@ const PaymentButton = ({ eventUrl }) => {
           //       />
           //     </div></>
         )}
-
-        <style jsx>{
-          `
-          .modal-container {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            border: 0px solid black;
-            width: 400px;
-            height: 70vh;
-            z-index: 10;
-            box-shadow: 0px 0px 20px #383838;
-            border-radius: 10px;
-            overflow: hidden;
-          }
-          
-          @media (max-width: 768px) {
-            .modal-container {
-              width: 100%;
-              position: relative;
-              transform: translate(0px);
-              left: 0%;
-              top: 0%;
-            }
-          }
-          `
-        }</style>
       </div>
     )
   );
