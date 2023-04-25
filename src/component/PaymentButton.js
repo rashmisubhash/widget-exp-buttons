@@ -28,7 +28,7 @@ const PaymentButton = ({ eventUrl }) => {
   }
 
   function checkMediaQuery() {
-    setScreenSize(window.innerWidth)
+    setScreenSize(window.screen.availWidth)
     // If the inner width of the window is greater then 768px
     if (window.innerWidth > 768) {
       // Then log this message to the console
@@ -46,7 +46,7 @@ const PaymentButton = ({ eventUrl }) => {
       : "dev_btn_607220c204ce";
     window.konfhubButton(button_id);
     if (button_id.includes("dev_btn")) getEventDetails(button_id);
-    setScreenSize(window.innerWidth)
+    setScreenSize(window.screen.availWidth)
     // let buttonText = document.currentScript?.getAttribute("data-button_text")
     //     ? document.currentScript.getAttribute("data-button_text")
     //     : "Register"; // 1
