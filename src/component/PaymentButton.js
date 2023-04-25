@@ -6,7 +6,7 @@ const PaymentButton = ({ eventUrl }) => {
   const [buttonText, setButtonText] = useState("");
   const [buttonTheme, setButtonTheme] = useState("");
   const [tickets, setTickets] = useState();
-  const [desc, setDesc] = useState(false);
+  const [screenSize, setScreenSize] = useState(null);
   // const [eventUrl, setEventUrl] = useState("")
 
   const [eventDetails, setEventDetails] = useState(null);
@@ -27,6 +27,18 @@ const PaymentButton = ({ eventUrl }) => {
     );
   }
 
+  function checkMediaQuery() {
+    setScreenSize(window.innerWidth)
+    // If the inner width of the window is greater then 768px
+    if (window.innerWidth > 768) {
+      // Then log this message to the console
+      console.log('Media Query Matched!')
+    }
+  }
+
+  // Add a listener for when the window resizes
+    window.addEventListener('resize', checkMediaQuery);
+
   useEffect(() => {
     // button id
     let button_id = document.currentScript?.getAttribute("button_id")
@@ -34,7 +46,7 @@ const PaymentButton = ({ eventUrl }) => {
       : "dev_btn_607220c204ce";
     window.konfhubButton(button_id);
     if (button_id.includes("dev_btn")) getEventDetails(button_id);
-
+    setScreenSize(window.innerWidth)
     // let buttonText = document.currentScript?.getAttribute("data-button_text")
     //     ? document.currentScript.getAttribute("data-button_text")
     //     : "Register"; // 1
@@ -59,7 +71,7 @@ const PaymentButton = ({ eventUrl }) => {
 
   return (
     eventDetails != null &&
-    widgetLink != null && (
+    widgetLink != null && screenSize != null && (
       <div>
         <button
           style={{
@@ -234,10 +246,10 @@ const PaymentButton = ({ eventUrl }) => {
         <style jsx>{
           `
           .modal-container {
-            position: absolute !important;
-            left: 50% !important;
-            top: 50% !important;
-            transform: translate(-50%, -50%) !important;
+            position: ${screenSize > 700 ? "absolute !important" : "relative !important"};
+            left: ${screenSize > 700 ? "50% !important" : "0% !important"};
+            top: ${screenSize > 700 ? "50% !important" : "0% !important"};
+            transform: ${screenSize > 700 ? "translate(-50%, -50%) !important" : "translate(0px) !important"};
             border: 0px solid black !important;
             width: 600px !important;
             height: 90vh !important;
