@@ -77,49 +77,114 @@ const PaymentButton = ({ eventUrl }) => {
           {eventDetails.button_name}
         </button>
         {open && eventUrl && (
-          <>
-            <div
-              style={{
-                width: "100vw",
-                height: "100vh",
-                backgroundColor: "black",
-                opacity: "0.6",
-                position: "fixed",
-                top: "0",
-                left: "0",
-              }}
-            ></div>
-            <div
-              className="modal-container"
-            >
-              <button
+          window.innerWidth > 768 ?
+            <>
+              <div
                 style={{
+                  width: "100vw",
+                  height: "100vh",
+                  backgroundColor: "black",
+                  opacity: "0.6",
+                  position: "fixed",
+                  top: "0",
+                  left: "0",
+                }}
+              ></div>
+              <div
+                className="modal-container" style={{
                   position: "absolute",
-                  zIndex: "5",
-                  right: "20px",
-                  fontWeight: "100",
-                  top: "16px",
-                  fontSize: "18px",
-                  color: "#fb5850",
-                  border: "1px solid #fb5850",
-                  cursor: "pointer",
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(-50%, -50%)",
+                  border: "0px solid black",
+                  width: "400px",
+                  height: "70vh",
+                  zIndex: "10",
+                  boxShadow: "0px 0px 20px #383838",
+                  borderRadius: "10px",
+                  overflow: "hidden"
                 }}
-                onClick={() => setOpen(false)}
               >
-                X
-              </button>
-              <iframe
+                <button
+                  style={{
+                    position: "absolute",
+                    zIndex: "5",
+                    right: "20px",
+                    fontWeight: "100",
+                    top: "16px",
+                    fontSize: "18px",
+                    color: "#fb5850",
+                    border: "1px solid #fb5850",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setOpen(false)}
+                >
+                  X
+                </button>
+                <iframe
+                  style={{
+                    border: "none",
+                    outline: "none",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  title="reg"
+                  src={widgetLink}
+                />
+              </div>
+            </> : <>
+              <div
                 style={{
-                  border: "none",
-                  outline: "none",
-                  width: "100%",
-                  height: "100%",
+                  width: "100vw",
+                  height: "100vh",
+                  backgroundColor: "black",
+                  opacity: "0.6",
+                  position: "fixed",
+                  top: "0",
+                  left: "0",
                 }}
-                title="reg"
-                src={widgetLink}
-              />
-            </div>
-          </>
+              ></div>
+              <div
+                className="modal-container" style={{
+                  position: "relative",
+                  left: "0%",
+                  top: "0%",
+                  border: "0px solid black",
+                  width: "100%",
+                  height: "70vh",
+                  zIndex: "10",
+                  boxShadow: "0px 0px 20px #383838",
+                  borderRadius: "10px",
+                  overflow: "hidden"
+                }}
+              >
+                <button
+                  style={{
+                    position: "absolute",
+                    zIndex: "5",
+                    right: "20px",
+                    fontWeight: "100",
+                    top: "16px",
+                    fontSize: "18px",
+                    color: "#fb5850",
+                    border: "1px solid #fb5850",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setOpen(false)}
+                >
+                  X
+                </button>
+                <iframe
+                  style={{
+                    border: "none",
+                    outline: "none",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  title="reg"
+                  src={widgetLink}
+                />
+              </div></>
         )}
 
         <style jsx>{
