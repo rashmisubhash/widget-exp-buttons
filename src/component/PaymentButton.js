@@ -109,17 +109,21 @@ const PaymentButton = ({ eventUrl }) => {
                 style={{
                   position: "absolute",
                   zIndex: "5",
-                  right: "20px",
+                  right: "0px",
                   fontWeight: "100",
-                  top: "16px",
+                  top: "0px",
                   fontSize: "18px",
-                  color: "#fb5850",
-                  border: "1px solid #fb5850",
+                  color: "white",
+                  border: "1px solid #999999",
+                  background: "#999999",
                   cursor: "pointer",
+                  borderTopRightRadius: "10px",
+                  borderBottomLeftRadius: "5px",
+                  padding: "2px 7px 4px"
                 }}
                 onClick={() => setOpen(false)}
               >
-                X
+                &#10006;
               </button>
               <iframe
                 style={{
