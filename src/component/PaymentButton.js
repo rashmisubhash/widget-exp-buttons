@@ -91,19 +91,7 @@ const PaymentButton = ({ eventUrl }) => {
               }}
             ></div>
             <div
-              className="modal-container" style={{
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                transform: "translate(-50%, -50%)",
-                border: "0px solid black",
-                width: "400px",
-                height: "70vh",
-                zIndex: "10",
-                boxShadow: "0px 0px 20px #383838",
-                borderRadius: "10px",
-                overflow: "hidden"
-              }}
+              className="modal-container"
             >
               <button
                 style={{
@@ -251,8 +239,8 @@ const PaymentButton = ({ eventUrl }) => {
             top: 50%;
             transform: translate(-50%, -50%);
             border: 0px solid black;
-            width: 400px;
-            height: 70vh;
+            width: 600px;
+            height: 90vh;
             z-index: 10;
             box-shadow: 0px 0px 20px #383838;
             border-radius: 10px;
