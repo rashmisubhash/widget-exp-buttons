@@ -22,9 +22,9 @@ const PaymentButton = ({ eventUrl }) => {
     setEventDetails(result);
     console.log(result);
     setWidgetLink(
-      `https://dev.konfhub.com/widget/${result.event_url}?desc=${
-        !result.hide_ticket_description
-      }&tickets=${result.attached_ticket_ids.toString()}`
+      `https://dev.konfhub.com/widget/${
+        result.event_url
+      }?desc=${!result.hide_ticket_description}&tickets=${result.attached_ticket_ids.toString()}`
     );
   }
 
@@ -91,20 +91,7 @@ const PaymentButton = ({ eventUrl }) => {
               }}
             ></div>
             <div
-              style={{
-                border: "0px solid black",
-                width: "400px",
-                height: "70vh",
-                position: "fixed",
-                top: "50%",
-                left: "50%",
-                marginLeft: "-200px",
-                marginTop: "-35vh",
-                zIndex: "10",
-                boxShadow: "0px 0px 20px #383838",
-                borderRadius: "10px",
-                overflow: "hidden",
-              }}
+              className="modal-container"
             >
               <button
                 style={{
@@ -135,6 +122,33 @@ const PaymentButton = ({ eventUrl }) => {
             </div>
           </>
         )}
+
+        <style jsx>{`
+          .modal-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: "0px solid black",
+            width: "400px",
+            height: "70vh",
+            zIndex: "10",
+            boxShadow: "0px 0px 20px #383838",
+            borderRadius: "10px",
+            overflow: "hidden",
+          }
+
+          @media (max-width: 768px) {
+            .modal-container {
+              width: 100%;
+              position: relative;
+              transform: translate(0px);
+              left: 0%;
+              top: 0%;
+            }
+            
+          }
+        `}</style>
       </div>
     )
   );
