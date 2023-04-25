@@ -247,7 +247,7 @@ const PaymentButton = ({ eventUrl }) => {
             overflow: hidden !important;
           }
           
-          @media (max-width: 768px) {
+          @media screen and (max-width: 768px) {
             .modal-container {
               width: 100% !important;
               position: relative !important;
