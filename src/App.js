@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="">
-      <PaymentButton />
+      <PaymentButton eventUrl={eventUrl}/>
     </div>
   );
 }
