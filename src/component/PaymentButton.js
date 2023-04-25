@@ -251,7 +251,7 @@ const PaymentButton = ({ eventUrl }) => {
             top: ${screenSize > 700 ? "50% !important" : "0% !important"};
             transform: ${screenSize > 700 ? "translate(-50%, -50%) !important" : "translate(0px) !important"};
             border: 0px solid black !important;
-            width: 600px !important;
+            width: ${screenSize > 700 ?"600px !important": "100% !important"};
             height: 90vh !important;
             z-index: 10 !important;
             box-shadow: 0px 0px 20px #383838 !important;
