@@ -8,17 +8,19 @@ const PaymentButton = ({ eventUrl }) => {
   const [eventDetails, setEventDetails] = useState(null);
   const [widgetLink, setWidgetLink] = useState(null);
 
-  // window.konfhubButton("jt-75dc36e9");
-
-  async function getEventDetails(btn_id) {
+  // Get event details based on the button id
+  async function getEventDetails(btn_id, env) {
     let result = await axios.get(
       "https://dev-api.konfhub.com/event/buttons/" + btn_id
     );
     result = result.data.button_details;
     setEventDetails(result);
-    console.log(result);
     setWidgetLink(
-      `https://dev.konfhub.com/widget/${
+      `${
+        env === "dev"
+          ? "https://dev.konfhub.com/widget/"
+          : "https://konfhub.com/widget/"
+      }${
         result.event_url
       }?desc=${!result.hide_ticket_description}&tickets=${result.attached_ticket_ids.toString()}&btnBg=${result.brand_color.substring(
         1
@@ -28,11 +30,6 @@ const PaymentButton = ({ eventUrl }) => {
 
   function checkMediaQuery() {
     setScreenSize(window.screen.availWidth);
-    // If the inner width of the window is greater then 768px
-    if (window.innerWidth > 768) {
-      // Then log this message to the console
-      console.log("Media Query Matched!");
-    }
   }
 
   // Add a listener for when the window resizes
@@ -44,7 +41,8 @@ const PaymentButton = ({ eventUrl }) => {
       ? document.currentScript.getAttribute("button_id")
       : "dev_btn_607220c204ce";
     window.konfhubButton(button_id);
-    if (button_id.includes("dev_btn")) getEventDetails(button_id);
+    if (button_id.includes("dev_btn")) getEventDetails(button_id, "dev");
+    else getEventDetails(button_id, "prod");
     setScreenSize(window.screen.availWidth);
   }, []);
 
