@@ -8,7 +8,7 @@ const PaymentButton = ({ eventUrl }) => {
   const [eventDetails, setEventDetails] = useState(null);
   const [widgetLink, setWidgetLink] = useState(null);
 
-  window.konfhubButton("jt-75dc36e9");
+  // window.konfhubButton("jt-75dc36e9");
 
   async function getEventDetails(btn_id) {
     let result = await axios.get(
@@ -66,7 +66,7 @@ const PaymentButton = ({ eventUrl }) => {
           }}
           onClick={() => setOpen(!open)}
         >
-          {eventDetails.button_name}dev
+          {eventDetails.button_name}
         </button>
         {open && (
           <>
@@ -117,6 +117,28 @@ const PaymentButton = ({ eventUrl }) => {
         )}
 
         <style jsx>{`
+          .scroll {
+            overflow-y: scroll;
+          }
+          ::-webkit-scrollbar {
+            width: 10px;
+          }
+
+          /* Track */
+          ::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          /* Handle */
+          ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 30px;
+          }
+
+          /* Handle on hover */
+          ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+          }
           .modal-container {
             position: ${screenSize > 700
               ? "absolute !important"
