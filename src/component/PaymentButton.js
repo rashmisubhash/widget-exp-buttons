@@ -20,9 +20,9 @@ const PaymentButton = ({ eventUrl }) => {
     setWidgetLink(
       `https://dev.konfhub.com/widget/${
         result.event_url
-      }?desc=${!result.hide_ticket_description}&tickets=${result.attached_ticket_ids.toString()}&btnBg=${eventDetails.brand_color.substring(
+      }?desc=${!result.hide_ticket_description}&tickets=${result.attached_ticket_ids.toString()}&btnBg=${result.brand_color.substring(
         1
-      )}&tertiaryBg=${eventDetails.brand_color.substring(1)}`
+      )}&tertiaryBg=${result.brand_color.substring(1)}`
     );
   }
 
@@ -66,7 +66,7 @@ const PaymentButton = ({ eventUrl }) => {
           }}
           onClick={() => setOpen(!open)}
         >
-          {eventDetails.button_name}ssss
+          {eventDetails.button_name}dev
         </button>
         {open && (
           <>
