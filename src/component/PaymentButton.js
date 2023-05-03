@@ -63,7 +63,7 @@ const PaymentButton = ({ eventUrl }) => {
             fontSize: "16px",
             borderRadius: "5px",
             cursor: "pointer",
-            display: "flex"
+            display: "inline-flex"
           }}
           onClick={() => setOpen(!open)}
         >
