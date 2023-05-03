@@ -66,7 +66,7 @@ const PaymentButton = ({ eventUrl }) => {
           }}
           onClick={() => setOpen(!open)}
         >
-          <img src={KH_logo} alt="kh logo" style={{
+          <img src={"https://dev-media.konfhub.com/footerlogo+(1).svg"} alt="kh logo" style={{
             width: "20px",
             height: "20px"
           }} />
