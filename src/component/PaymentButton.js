@@ -63,12 +63,15 @@ const PaymentButton = ({ eventUrl }) => {
             fontSize: "16px",
             borderRadius: "5px",
             cursor: "pointer",
+            display: "flex"
           }}
           onClick={() => setOpen(!open)}
         >
           <img src={"https://dev-media.konfhub.com/footerlogo+(1).svg"} alt="kh logo" style={{
             width: "20px",
-            height: "20px"
+            height: "20px",
+            transform: "translateY(-1px)",
+            marginRight: "5px"
           }} />
           {eventDetails.button_name}
         </button>
