@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import KH_logo from "./KH_logo.svg";
 
 const PaymentButton = ({ eventUrl }) => {
   const [open, setOpen] = useState(false);
@@ -16,12 +17,10 @@ const PaymentButton = ({ eventUrl }) => {
     result = result.data.button_details;
     setEventDetails(result);
     setWidgetLink(
-      `${
-        env === "dev"
-          ? "https://dev.konfhub.com/widget/"
-          : "https://konfhub.com/widget/"
-      }${
-        result.event_url
+      `${env === "dev"
+        ? "https://dev.konfhub.com/widget/"
+        : "https://konfhub.com/widget/"
+      }${result.event_url
       }?desc=${!result.hide_ticket_description}&tickets=${result.attached_ticket_ids.toString()}&btnBg=${result.brand_color.substring(
         1
       )}&tertiaryBg=${result.brand_color.substring(1)}`
@@ -52,8 +51,11 @@ const PaymentButton = ({ eventUrl }) => {
     screenSize != null && (
       <div>
         <button
+          className="reg-button"
           style={{
-            padding: "12px 25px",
+            boxShadow: "0 4px 5px rgba(0, 0, 0, 0.15)",
+            fontWeight: "500",
+            padding: "12px 30px",
             background: eventDetails.brand_color,
             color: "white",
             border: "1px solid",
@@ -64,6 +66,10 @@ const PaymentButton = ({ eventUrl }) => {
           }}
           onClick={() => setOpen(!open)}
         >
+          <img src={KH_logo} alt="kh logo" style={{
+            width: "20px",
+            height: "20px"
+          }} />
           {eventDetails.button_name}
         </button>
         {open && (
@@ -139,13 +145,13 @@ const PaymentButton = ({ eventUrl }) => {
           }
           .modal-container {
             position: ${screenSize > 700
-              ? "absolute !important"
-              : "relative !important"};
+            ? "absolute !important"
+            : "relative !important"};
             left: ${screenSize > 700 ? "50% !important" : "0% !important"};
             top: ${screenSize > 700 ? "50% !important" : "0% !important"};
             transform: ${screenSize > 700
-              ? "translate(-50%, -50%) !important"
-              : "translate(0px) !important"};
+            ? "translate(-50%, -50%) !important"
+            : "translate(0px) !important"};
             border: 0px solid black !important;
             width: ${screenSize > 700 ? "600px !important" : "100% !important"};
             height: 90vh !important;
