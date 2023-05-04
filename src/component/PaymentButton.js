@@ -59,7 +59,7 @@ const PaymentButton = ({ eventUrl }) => {
             padding: "12px 30px",
             background: eventDetails.brand_color,
             color: "white",
-            // border: "1px solid",
+            border: "none",
             outline: "none",
             fontSize: "16px",
             borderRadius: "5px",
