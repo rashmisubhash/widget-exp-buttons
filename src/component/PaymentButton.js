@@ -33,7 +33,6 @@ const PaymentButton = ({ eventUrl }) => {
 
   // Add a listener for when the window resizes
   window.addEventListener("resize", checkMediaQuery);
-  console.log(document.currentScript, "dd")
 
   window.konfhubButton("jt-75dc36e9");
 
@@ -50,13 +49,13 @@ const PaymentButton = ({ eventUrl }) => {
     eventDetails != null &&
     widgetLink != null &&
     screenSize != null && (
-      <div>{console.log("eventDetails", eventDetails)}
+      <div>
         <button
           className="reg-button"
           style={{
             boxShadow: "0 4px 5px rgba(0, 0, 0, 0.15)",
             fontWeight: "500",
-            padding: "12px 30px",
+            padding: "12px 30px 12px 25px",
             background: eventDetails.brand_color,
             color: "white",
             border: "none",
@@ -64,7 +63,9 @@ const PaymentButton = ({ eventUrl }) => {
             fontSize: "16px",
             borderRadius: "5px",
             cursor: "pointer",
-            display: "inline-flex"
+            display: "inline-flex",
+            letterSpacing: "1px",
+            fontFamily: "Prompt,sans-serif"
           }}
           onClick={() => setOpen(!open)}
         >
