@@ -36,9 +36,7 @@ const PaymentButton = ({ eventUrl }) => {
 
   useEffect(() => {
     // button id
-    let button_id = document.currentScript?.getAttribute("button_id")
-      ? document.currentScript.getAttribute("button_id")
-      : "dev_btn_607220c204ce";
+    let button_id = document.currentScript.getAttribute("button_id");
     window.konfhubButton(button_id);
     if (button_id.includes("dev_btn")) getEventDetails(button_id, "dev");
     else getEventDetails(button_id, "prod");
@@ -49,7 +47,7 @@ const PaymentButton = ({ eventUrl }) => {
     eventDetails != null &&
     widgetLink != null &&
     screenSize != null && (
-      <div>
+      <div>{console.log("eventDetails", eventDetails)}
         <button
           className="reg-button"
           style={{
