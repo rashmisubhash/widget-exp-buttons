@@ -36,6 +36,7 @@ const PaymentButton = ({ eventUrl }) => {
 
   useEffect(() => {
     // button id
+    console.log("eventUrl", eventUrl, document.currentScript.getAttribute("button_id"))
     let button_id = document.currentScript.getAttribute("button_id");
     window.konfhubButton(button_id);
     if (button_id.includes("dev_btn")) getEventDetails(button_id, "dev");
