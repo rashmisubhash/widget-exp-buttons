@@ -33,23 +33,30 @@ const PaymentButton = ({ eventUrl }) => {
 
   // Add a listener for when the window resizes
   window.addEventListener("resize", checkMediaQuery);
+  console.log(document.currentScript, "dd")
 
   useEffect(() => {
     // button id
 
 
-    var currentScript = document.currentScript;
-
-
-    setInterval(function () {
-      console.log("eventUrl", eventUrl, document.currentScript.getAttribute("button_id"))
+    if (document.currentScript) {
+      console.log("eventUrl", eventUrl, document.currentScript, document.currentScript.getAttribute("button_id"))
       let button_id = document.currentScript.getAttribute("button_id");
       window.konfhubButton(button_id);
       if (button_id.includes("dev_btn")) getEventDetails(button_id, "dev");
       else getEventDetails(button_id, "prod");
       setScreenSize(window.screen.availWidth);
-    }, 3000);
-  }, []);
+    }
+
+    // setInterval(function () {
+    //   console.log("eventUrl", eventUrl, document.currentScript.getAttribute("button_id"))
+    //   let button_id = document.currentScript.getAttribute("button_id");
+    //   window.konfhubButton(button_id);
+    //   if (button_id.includes("dev_btn")) getEventDetails(button_id, "dev");
+    //   else getEventDetails(button_id, "prod");
+    //   setScreenSize(window.screen.availWidth);
+    // }, 3000);
+  }, [document.currentScript]);
 
   return (
     eventDetails != null &&
@@ -64,7 +71,7 @@ const PaymentButton = ({ eventUrl }) => {
             padding: "12px 30px",
             background: eventDetails.brand_color,
             color: "white",
-            border: "1px solid",
+            // border: "1px solid",
             outline: "none",
             fontSize: "16px",
             borderRadius: "5px",
