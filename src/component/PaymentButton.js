@@ -35,28 +35,16 @@ const PaymentButton = ({ eventUrl }) => {
   window.addEventListener("resize", checkMediaQuery);
   console.log(document.currentScript, "dd")
 
+  window.konfhubButton("jt-75dc36e9");
+
   useEffect(() => {
     // button id
-
-
-    if (document.currentScript) {
-      console.log("eventUrl", eventUrl, document.currentScript, document.currentScript.getAttribute("button_id"))
-      let button_id = document.currentScript.getAttribute("button_id");
-      window.konfhubButton(button_id);
-      if (button_id.includes("dev_btn")) getEventDetails(button_id, "dev");
-      else getEventDetails(button_id, "prod");
-      setScreenSize(window.screen.availWidth);
-    }
-
-    // setInterval(function () {
-    //   console.log("eventUrl", eventUrl, document.currentScript.getAttribute("button_id"))
-    //   let button_id = document.currentScript.getAttribute("button_id");
-    //   window.konfhubButton(button_id);
-    //   if (button_id.includes("dev_btn")) getEventDetails(button_id, "dev");
-    //   else getEventDetails(button_id, "prod");
-    //   setScreenSize(window.screen.availWidth);
-    // }, 3000);
-  }, [document.currentScript]);
+    let button_id = document.currentScript?.getAttribute("button_id") ? document.currentScript.getAttribute("button_id") : "dev_btn_12084d609076";
+    window.konfhubButton(button_id);
+    if (button_id.includes("dev_btn")) getEventDetails(button_id, "dev");
+    else getEventDetails(button_id, "prod");
+    setScreenSize(window.screen.availWidth);
+  }, []);
 
   return (
     eventDetails != null &&
